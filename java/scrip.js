@@ -3,7 +3,7 @@
    Conserva las comillas y las comas.
 
    Ejemplo:
-   portada: "https://tusitio.com/fotos/oficina.jpg",
+   portada: "https://drive.google.com/file/d/19mw2EvsbKH388AePJqptiDmrF34ZlkpU/view?usp=sharing",
 
    También puedes usar imágenes locales:
    portada: "./imagenes/oficina.jpg",
@@ -11,11 +11,11 @@
 
 const imagenes = {
   logo: "",       // LOGO
-  portada: "",    // FOTO PRINCIPAL
+  portada: "",    // https://drive.google.com/file/d/19mw2EvsbKH388AePJqptiDmrF34ZlkpU/view?usp=sharing
   producto1: "",  // FOTO DEL PRODUCTO 1
   producto2: "",  // FOTO DEL PRODUCTO 2
   producto3: "",  // FOTO DEL PRODUCTO 3
-  trabajo: ""     // FOTO DE UN TRABAJO REALIZADO
+  trabajo: ""     // https://drive.google.com/file/d/1uxuRZ89OENlKWPTekNva43SUDg5q4UiE/view?usp=sharing
 };
 
 const numeroWhatsApp = "593995656347";
