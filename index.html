@@ -4,24 +4,37 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>AM OFFICE | Amoblamiento y mantenimiento</title>
+  <title>AM OFFICE | Mobiliario y mantenimiento</title>
 
   <meta
     name="description"
-    content="Amoblamiento, venta de modulares y mantenimiento de juegos de sala y sillas de oficina en Quito."
+    content="Mobiliario para hogares y oficinas, sillas ergonómicas, soft seating, amoblamientos completos y mantenimiento de muebles en Quito."
   >
 
- <link rel="stylesheet" href="./css/estilos.css">
-<script src="./java/scrip.js" defer></script>
+  <!-- CONEXIONES: conserva estas carpetas y nombres -->
+  <link rel="stylesheet" href="./css/estilos.css">
+  <script src="./java/scrip.js" defer></script>
 </head>
 
 <body>
+
+  <!-- ENCABEZADO -->
   <header class="encabezado">
     <div class="contenedor navegacion">
 
       <a class="marca" href="#inicio" aria-label="AM OFFICE, inicio">
-        <img data-imagen="logo" class="logo" alt="AM OFFICE" hidden>
-        <span id="nombre-marca"><strong>AM</strong> OFFICE</span>
+
+        <!-- LOGO: cambia únicamente el contenido de src -->
+        <img
+          class="logo"
+          src="./imagenes/logo-am-office.png"
+          alt="AM OFFICE"
+          data-logo
+        >
+
+        <span id="nombre-marca">
+          <strong>AM</strong> OFFICE
+        </span>
       </a>
 
       <nav class="menu" aria-label="Navegación principal">
@@ -39,7 +52,9 @@
     <!-- PORTADA -->
     <section class="contenedor portada">
       <div>
-        <p class="etiqueta">Amoblamiento y mantenimiento · Quito</p>
+        <p class="etiqueta">
+          Amoblamiento y mantenimiento · Quito
+        </p>
 
         <h1>
           Tu espacio merece
@@ -66,21 +81,25 @@
           </a>
         </div>
 
-        <p class="nota">Más de 10 años de experiencia a tu servicio.</p>
+        <p class="nota">
+          Más de 10 años de experiencia a tu servicio.
+        </p>
       </div>
 
       <div class="visual">
         <figure class="foto foto-portada">
+
           <div class="placeholder">
-            <strong>Foto principal</strong>
-            <span>Agrega su enlace en script.js</span>
+            <strong>AM OFFICE</strong>
+            <span>Mobiliario para tus espacios</span>
           </div>
 
+          <!-- FOTO PRINCIPAL: coloca tu enlace en src -->
           <img
-            data-imagen="portada"
+            src="./imagenes/portada.jpg"
             alt="Espacio amoblado por AM OFFICE"
             fetchpriority="high"
-            hidden
+            data-foto
           >
         </figure>
 
@@ -91,6 +110,7 @@
       </div>
     </section>
 
+    <!-- FRANJA INFORMATIVA -->
     <div class="franja">
       <div class="contenedor franja-contenido">
         <span>Para hogares y empresas</span>
@@ -160,127 +180,226 @@
         >
           Cuéntanos qué necesitas →
         </a>
+
       </div>
     </section>
 
-    <!-- PRODUCTOS: EDITA LOS EJEMPLOS SEGÚN TU CATÁLOGO -->
-    <section id="productos" class="seccion fondo-suave">
+    <!-- CARRUSEL DE PRODUCTOS -->
+    <section
+      id="productos"
+      class="seccion fondo-suave"
+      aria-labelledby="titulo-productos"
+    >
       <div class="contenedor">
 
         <div class="titulo-seccion" data-animar>
           <div>
-            <p class="etiqueta">Productos destacados</p>
-            <h2>Encuentra tu próximo mueble.</h2>
+            <p class="etiqueta">Mobiliario para tus espacios</p>
+            <h2 id="titulo-productos">
+              Comodidad, estilo y funcionalidad.
+            </h2>
           </div>
 
           <p>
-            Consulta las opciones disponibles para
-            amoblar tu hogar u oficina.
+            Encuentra mobiliario para tu hogar, tu oficina
+            o tu próximo proyecto de amoblamiento.
           </p>
         </div>
 
-        <div class="productos">
+        <div
+          id="carrusel-productos"
+          class="productos carrusel-productos"
+          tabindex="0"
+          role="region"
+          aria-label="Categorías de mobiliario. Desliza o utiliza las flechas del teclado."
+        >
 
-          <!-- PRODUCTO 1 -->
-          <article class="producto" data-animar>
+          <!-- PRODUCTO 1: SILLAS -->
+          <article
+            class="producto"
+            role="group"
+            aria-label="1 de 4: Sillas de oficina y ergonómicas"
+          >
             <figure class="foto">
               <div class="placeholder">
-                <strong>Foto del producto 1</strong>
-                <span>Agrega el enlace en producto1</span>
+                <strong>Sillas de oficina y ergonómicas</strong>
+                <span>Fotografía próximamente</span>
               </div>
 
+              <!-- FOTO DE SILLAS: coloca tu enlace en src -->
               <img
-                data-imagen="producto1"
-                alt="Modular para oficina"
+                src="./imagenes/sillas-oficina.jpg"
+                alt="Sillas de oficina y ergonómicas"
                 loading="lazy"
-                hidden
+                data-foto
               >
             </figure>
 
             <div class="producto-info">
-              <h3>Modulares para oficina</h3>
+              <h3>Sillas de oficina y ergonómicas</h3>
+
               <p>
-                Organiza tu espacio de trabajo. Consulta
-                los modelos y medidas disponibles.
+                Encuentra una silla para tu espacio de trabajo.
+                Consulta nuestros modelos de oficina y opciones
+                ergonómicas.
               </p>
 
               <a
                 class="enlace"
                 href="https://wa.me/593995656347"
-                data-mensaje="Hola, me interesan los modulares para oficina."
+                data-mensaje="Hola, me interesan las sillas de oficina y ergonómicas. Quisiera conocer los modelos disponibles."
               >
-                Consultar producto ↗
+                Consultar modelos ↗
               </a>
             </div>
           </article>
 
-          <!-- PRODUCTO 2 -->
-          <article class="producto" data-animar>
+          <!-- PRODUCTO 2: SOFT SEATING -->
+          <article
+            class="producto"
+            role="group"
+            aria-label="2 de 4: Soft seating"
+          >
             <figure class="foto">
               <div class="placeholder">
-                <strong>Foto del producto 2</strong>
-                <span>Agrega el enlace en producto2</span>
+                <strong>Soft seating</strong>
+                <span>Fotografía próximamente</span>
               </div>
 
+              <!-- FOTO DE SOFT SEATING: coloca tu enlace en src -->
               <img
-                data-imagen="producto2"
-                alt="Mueble para sala"
+                src="./imagenes/soft-seating.jpg"
+                alt="Sofás y butacas para áreas de espera y descanso"
                 loading="lazy"
-                hidden
+                data-foto
               >
             </figure>
 
             <div class="producto-info">
-              <h3>Muebles para sala</h3>
+              <h3>Soft seating</h3>
+
               <p>
-                Dale un nuevo aire a tu hogar. Conoce
-                nuestras opciones de amoblamiento.
+                Sofás, butacas y asientos para crear ambientes
+                acogedores en recepciones, salas de espera
+                y áreas de descanso.
               </p>
 
               <a
                 class="enlace"
                 href="https://wa.me/593995656347"
-                data-mensaje="Hola, quisiera conocer sus opciones para amoblar mi sala."
+                data-mensaje="Hola, quisiera información sobre sus opciones de soft seating."
               >
-                Consultar producto ↗
+                Consultar opciones ↗
               </a>
             </div>
           </article>
 
-          <!-- PRODUCTO 3 -->
-          <article class="producto" data-animar>
+          <!-- PRODUCTO 3: HOGAR -->
+          <article
+            class="producto"
+            role="group"
+            aria-label="3 de 4: Muebles de hogar"
+          >
             <figure class="foto">
               <div class="placeholder">
-                <strong>Foto del producto 3</strong>
-                <span>Agrega el enlace en producto3</span>
+                <strong>Muebles de hogar</strong>
+                <span>Fotografía próximamente</span>
               </div>
 
+              <!-- FOTO DE HOGAR: coloca tu enlace en src -->
               <img
-                data-imagen="producto3"
-                alt="Modular para el hogar"
+                src="./imagenes/muebles-hogar.jpg"
+                alt="Mobiliario para el hogar"
                 loading="lazy"
-                hidden
+                data-foto
               >
             </figure>
 
             <div class="producto-info">
-              <h3>Modulares para el hogar</h3>
+              <h3>Muebles de hogar</h3>
+
               <p>
-                Encuentra opciones para organizar tus
-                ambientes y aprovechar tu espacio.
+                Dale a tu hogar el estilo y la comodidad que
+                buscas. Conoce nuestras opciones de mobiliario
+                para tus ambientes.
               </p>
 
               <a
                 class="enlace"
                 href="https://wa.me/593995656347"
-                data-mensaje="Hola, me interesan los modulares para el hogar."
+                data-mensaje="Hola, me interesan sus muebles de hogar. Quisiera conocer las opciones disponibles."
               >
-                Consultar producto ↗
+                Consultar mobiliario ↗
+              </a>
+            </div>
+          </article>
+
+          <!-- PRODUCTO 4: AMOBLAMIENTOS COMPLETOS -->
+          <article
+            class="producto"
+            role="group"
+            aria-label="4 de 4: Amoblamientos completos"
+          >
+            <figure class="foto">
+              <div class="placeholder">
+                <strong>Amoblamientos completos</strong>
+                <span>Fotografía próximamente</span>
+              </div>
+
+              <!-- FOTO DE AMOBLAMIENTO: coloca tu enlace en src -->
+              <img
+                src="./imagenes/amoblamiento-completo.jpg"
+                alt="Proyecto de amoblamiento completo"
+                loading="lazy"
+                data-foto
+              >
+            </figure>
+
+            <div class="producto-info">
+              <h3>Amoblamientos completos</h3>
+
+              <p>
+                Equipamos hogares, oficinas, hospitales y
+                espacios comerciales con mobiliario según
+                las necesidades de cada proyecto.
+              </p>
+
+              <a
+                class="enlace"
+                href="https://wa.me/593995656347"
+                data-mensaje="Hola, quisiera cotizar un proyecto de amoblamiento completo."
+              >
+                Cotizar mi proyecto ↗
               </a>
             </div>
           </article>
 
         </div>
+
+        <div class="carrusel-pie">
+          <p>Desliza para explorar las cuatro categorías.</p>
+
+          <div class="carrusel-controles" hidden>
+            <button
+              type="button"
+              id="producto-anterior"
+              aria-label="Ver categoría anterior"
+              aria-controls="carrusel-productos"
+            >
+              ←
+            </button>
+
+            <button
+              type="button"
+              id="producto-siguiente"
+              aria-label="Ver siguiente categoría"
+              aria-controls="carrusel-productos"
+            >
+              →
+            </button>
+          </div>
+        </div>
+
       </div>
     </section>
 
@@ -290,31 +409,456 @@
 
         <figure class="foto" data-animar>
           <div class="placeholder">
-            <strong>Foto de un trabajo realizado</strong>
-            <span>Agrega su enlace en trabajo</span>
+            <strong>Nuestros trabajos</strong>
+            <span>Experiencia en cada proyecto</span>
           </div>
 
+          <!-- FOTO DE TRABAJO REALIZADO: coloca tu enlace en src -->
           <img
-            data-imagen="trabajo"
+            src="./imagenes/trabajo-realizado.jpg"
             alt="Trabajo realizado por AM OFFICE"
             loading="lazy"
-            hidden
+            data-foto
+          >
+
+Josue, **las imágenes ahora se colocan directamente en el HTML**. También cambié los enlaces de WhatsApp al **0998228348**, con tu mensaje, y sus botones serán verdes.
+
+**1. Reemplaza todo tu `index.html` por esto.** En cada `src` encontrarás dónde colocar la foto. El logo usa el archivo incluido en el ZIP anterior: `imagenes/logo-am-office.png`.
+
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>AM OFFICE | Mobiliario y amoblamiento</title>
+
+  <meta
+    name="description"
+    content="Mobiliario, amoblamiento y mantenimiento de muebles en Quito. Más de 10 años de experiencia para hogares y empresas."
+  >
+
+  <link rel="stylesheet" href="./css/estilos.css">
+  <script src="./java/scrip.js" defer></script>
+</head>
+
+<body>
+  <header class="encabezado">
+    <div class="contenedor navegacion">
+
+      <a class="marca" href="#inicio" aria-label="AM OFFICE, inicio">
+
+        <!-- LOGO: cambia el src si usas otra ruta o enlace directo. -->
+        <img
+          class="logo"
+          src="./imagenes/logo-am-office.png"
+          alt="AM OFFICE"
+        >
+
+        <span id="nombre-marca">
+          <strong>AM</strong> OFFICE
+        </span>
+      </a>
+
+      <nav class="menu" aria-label="Navegación principal">
+        <a href="#servicios">Servicios</a>
+        <a href="#productos">Mobiliario</a>
+        <a href="#nosotros">Nosotros</a>
+        <a class="boton" href="#contacto">Contacto ↗</a>
+      </nav>
+
+    </div>
+  </header>
+
+  <main id="inicio">
+
+    <!-- PORTADA -->
+    <section class="contenedor portada">
+
+      <div>
+        <p class="etiqueta">
+          Mobiliario y amoblamiento · Quito
+        </p>
+
+        <h1>
+          Tu espacio merece
+          <span>una nueva vida.</span>
+        </h1>
+
+        <p class="descripcion">
+          Amoblamos tu hogar y oficina. También damos mantenimiento
+          a tus juegos de sala y sillas de oficina para que sigas
+          disfrutando de ellos.
+        </p>
+
+        <div class="acciones">
+          <a
+            class="boton boton-whatsapp"
+            href="https://wa.me/593998228348"
+            data-whatsapp
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Solicitar cotización ↗
+          </a>
+
+          <a class="boton secundario" href="#servicios">
+            Ver servicios
+          </a>
+        </div>
+
+        <p class="nota">
+          Más de 10 años de experiencia a tu servicio.
+        </p>
+      </div>
+
+      <div class="visual">
+        <figure class="foto foto-portada">
+
+          <div class="placeholder">
+            <strong>AM OFFICE</strong>
+            <span>Mobiliario para tus espacios</span>
+          </div>
+
+          <!-- FOTO PRINCIPAL: pega el enlace dentro de src="". -->
+          <img
+              src="./imagenes/portada.jpg"
+              alt="Espacio amoblado por AM OFFICE"
+              fetchpriority="high"
+          >
+        </figure>
+
+        <div class="insignia">
+          <strong>+10 años</strong>
+          <span>De experiencia</span>
+        </div>
+      </div>
+
+    </section>
+
+    <div class="franja">
+      <div class="contenedor franja-contenido">
+        <span>Para hogares y empresas</span>
+        <span>Mobiliario y amoblamiento</span>
+        <span>Mantenimiento de muebles</span>
+      </div>
+    </div>
+
+    <!-- SERVICIOS -->
+    <section id="servicios" class="seccion">
+      <div class="contenedor">
+
+        <div class="titulo-seccion" data-animar>
+          <div>
+            <p class="etiqueta">Nuestros servicios</p>
+            <h2>Soluciones para cada espacio.</h2>
+          </div>
+
+          <p>
+            Desde amoblar un nuevo ambiente hasta cuidar
+            los muebles que ya forman parte de tu día a día.
+          </p>
+        </div>
+
+        <div class="servicios">
+
+          <article class="servicio" data-animar>
+            <span class="numero">01 / AMOBLAMIENTO</span>
+            <h3>Amoblamientos completos</h3>
+            <p>
+              Equipamos hogares, oficinas, hospitales y espacios
+              comerciales según las necesidades de cada proyecto.
+            </p>
+          </article>
+
+          <article class="servicio" data-animar>
+            <span class="numero">02 / MOBILIARIO</span>
+            <h3>Mobiliario para tus ambientes</h3>
+            <p>
+              Sillas de oficina, opciones ergonómicas, soft seating
+              y muebles para el hogar.
+            </p>
+          </article>
+
+          <article class="servicio" data-animar>
+            <span class="numero">03 / SALAS</span>
+            <h3>Mantenimiento de juegos de sala</h3>
+            <p>
+              Cuéntanos qué necesita tu juego de sala y
+              consulta nuestras opciones de mantenimiento.
+            </p>
+          </article>
+
+          <article class="servicio" data-animar>
+            <span class="numero">04 / SILLAS</span>
+            <h3>Mantenimiento de sillas de oficina</h3>
+            <p>
+              Consulta el mantenimiento que necesitan tus
+              sillas para seguir utilizándolas.
+            </p>
+          </article>
+
+        </div>
+
+        <a
+            class="enlace consulta"
+            href="https://wa.me/593998228348"
+            data-whatsapp
+        >
+          Cuéntanos qué necesitas →
+        </a>
+
+      </div>
+    </section>
+
+    <!-- CARRUSEL DE MOBILIARIO -->
+    <section
+        id="productos"
+        class="seccion fondo-suave"
+        aria-labelledby="titulo-productos"
+    >
+      <div class="contenedor">
+
+        <div class="titulo-seccion" data-animar>
+          <div>
+            <p class="etiqueta">Mobiliario para tus espacios</p>
+            <h2 id="titulo-productos">
+              Comodidad, estilo y funcionalidad.
+            </h2>
+          </div>
+
+          <p>
+            Encuentra mobiliario para tu hogar, tu oficina
+            o tu próximo proyecto de amoblamiento.
+          </p>
+        </div>
+
+        <div
+            class="productos carrusel-productos"
+            id="carrusel-productos"
+            tabindex="0"
+            role="region"
+            aria-label="Categorías de mobiliario. Desliza o utiliza las flechas del teclado."
+        >
+
+          <!-- PRODUCTO 1 -->
+          <article
+              class="producto"
+              role="group"
+              aria-label="1 de 4: Sillas de oficina y ergonómicas"
+          >
+            <figure class="foto">
+              <div class="placeholder">
+                <strong>Sillas de oficina y ergonómicas</strong>
+                <span>Fotografía próximamente</span>
+              </div>
+
+              <!-- FOTO DE SILLAS: reemplaza el src por tu enlace. -->
+              <img
+                  src="./imagenes/sillas-oficina.jpg"
+                  alt="Silla de oficina ergonómica"
+                  loading="lazy"
+              >
+            </figure>
+
+            <div class="producto-info">
+              <h3>Sillas de oficina y ergonómicas</h3>
+
+              <p>
+                Encuentra una silla para tu espacio de trabajo.
+                Consulta nuestros modelos de oficina y opciones
+                ergonómicas.
+              </p>
+
+              <a
+                  class="enlace"
+                  href="https://wa.me/593998228348"
+                  data-whatsapp
+              >
+                Consultar modelos ↗
+              </a>
+            </div>
+          </article>
+
+          <!-- PRODUCTO 2 -->
+          <article
+              class="producto"
+              role="group"
+              aria-label="2 de 4: Soft seating"
+          >
+            <figure class="foto">
+              <div class="placeholder">
+                <strong>Soft seating</strong>
+                <span>Fotografía próximamente</span>
+              </div>
+
+              <!-- FOTO DE SOFT SEATING: reemplaza el src. -->
+              <img
+                  src="./imagenes/soft-seating.jpg"
+                  alt="Mobiliario soft seating para salas de espera y descanso"
+                  loading="lazy"
+              >
+            </figure>
+
+            <div class="producto-info">
+              <h3>Soft seating</h3>
+
+              <p>
+                Sofás, butacas y asientos para crear ambientes
+                acogedores en recepciones, salas de espera
+                y áreas de descanso.
+              </p>
+
+              <a
+                  class="enlace"
+                  href="https://wa.me/593998228348"
+                  data-whatsapp
+              >
+                Consultar opciones ↗
+              </a>
+            </div>
+          </article>
+
+          <!-- PRODUCTO 3 -->
+          <article
+              class="producto"
+              role="group"
+              aria-label="3 de 4: Muebles de hogar"
+          >
+            <figure class="foto">
+              <div class="placeholder">
+                <strong>Muebles de hogar</strong>
+                <span>Fotografía próximamente</span>
+              </div>
+
+              <!-- FOTO DE MUEBLES DE HOGAR: reemplaza el src. -->
+              <img
+                  src="./imagenes/muebles-hogar.jpg"
+                  alt="Mobiliario para el hogar"
+                  loading="lazy"
+              >
+            </figure>
+
+            <div class="producto-info">
+              <h3>Muebles de hogar</h3>
+
+              <p>
+                Dale a tu hogar el estilo y la comodidad
+                que buscas. Conoce nuestras opciones de
+                mobiliario para tus ambientes.
+              </p>
+
+              <a
+                  class="enlace"
+                  href="https://wa.me/593998228348"
+                  data-whatsapp
+              >
+                Consultar mobiliario ↗
+              </a>
+            </div>
+          </article>
+
+          <!-- PRODUCTO 4 -->
+          <article
+              class="producto"
+              role="group"
+              aria-label="4 de 4: Amoblamientos completos"
+          >
+            <figure class="foto">
+              <div class="placeholder">
+                <strong>Amoblamientos completos</strong>
+                <span>Fotografía próximamente</span>
+              </div>
+
+              <!-- FOTO DE AMOBLAMIENTOS COMPLETOS: reemplaza el src. -->
+              <img
+                  src="./imagenes/amoblamientos.jpg"
+                  alt="Proyecto de amoblamiento completo"
+                  loading="lazy"
+              >
+            </figure>
+
+            <div class="producto-info">
+              <h3>Amoblamientos completos</h3>
+
+              <p>
+                Equipamos hogares, oficinas, hospitales
+                y espacios comerciales con mobiliario
+                según las necesidades de cada proyecto.
+              </p>
+
+              <a
+                  class="enlace"
+                  href="https://wa.me/593998228348"
+                  data-whatsapp
+              >
+                Cotizar mi proyecto ↗
+              </a>
+            </div>
+          </article>
+
+        </div>
+
+        <div class="carrusel-pie">
+          <p>Desliza para explorar las cuatro categorías.</p>
+
+          <div class="carrusel-controles" hidden>
+            <button
+                type="button"
+                id="producto-anterior"
+                aria-label="Ver categoría anterior"
+                aria-controls="carrusel-productos"
+            >
+              ←
+            </button>
+
+            <button
+                type="button"
+                id="producto-siguiente"
+                aria-label="Ver siguiente categoría"
+                aria-controls="carrusel-productos"
+            >
+              →
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- NOSOTROS -->
+    <section id="nosotros" class="seccion">
+      <div class="contenedor nosotros">
+
+        <figure class="foto" data-animar>
+          <div class="placeholder">
+            <strong>Nuestros trabajos</strong>
+            <span>Experiencia en cada proyecto</span>
+          </div>
+
+          <!-- FOTO DE UN TRABAJO REALIZADO: reemplaza el src. -->
+          <img
+              src="./imagenes/trabajo.jpg"
+              alt="Trabajo de mobiliario realizado por AM OFFICE"
+              loading="lazy"
           >
         </figure>
 
         <div data-animar>
           <p class="etiqueta">Conoce AM OFFICE</p>
+
           <h2>Experiencia que acompaña cada proyecto.</h2>
 
           <p class="texto-nosotros">
-            Contamos con más de 10 años de experiencia en
-            amoblamiento, venta de modulares y mantenimiento
-            de muebles. Trabajamos con empresas de Quito y
-            personas que buscan renovar sus espacios.
+            Contamos con más de 10 años de experiencia
+            en mobiliario, amoblamiento y mantenimiento
+            de muebles. Trabajamos con empresas de Quito
+            y personas que buscan renovar sus espacios.
           </p>
 
           <ul class="lista">
-            <li>Amoblamiento para hogares y oficinas.</li>
+            <li>Amoblamiento para hogares y empresas.</li>
             <li>Mantenimiento de juegos de sala.</li>
             <li>Mantenimiento de sillas de oficina.</li>
           </ul>
@@ -323,6 +867,7 @@
             Hablemos de tu proyecto →
           </a>
         </div>
+
       </div>
     </section>
 
@@ -341,9 +886,11 @@
           </p>
 
           <a
-            class="boton boton-blanco"
-            href="https://wa.me/593995656347"
-            data-mensaje="Hola, AM OFFICE. Quisiera cotizar un servicio de amoblamiento o mantenimiento."
+              class="boton boton-whatsapp"
+              href="https://wa.me/593998228348"
+              data-whatsapp
+              target="_blank"
+              rel="noopener noreferrer"
           >
             Escribir por WhatsApp ↗
           </a>
@@ -358,19 +905,23 @@
           </address>
 
           <a
-            href="https://www.google.com/maps/search/?api=1&amp;query=Ciudadela+del+Ejercito+Av+General+Jose+Gallardo+Quito"
-            target="_blank"
-            rel="noopener noreferrer"
+              href="https://www.google.com/maps/search/?api=1&amp;query=Ciudadela+del+Ejercito+Av+General+Jose+Gallardo+Quito"
+              target="_blank"
+              rel="noopener noreferrer"
           >
             Buscar dirección en Google Maps ↗
           </a>
 
-          <h3 class="titulo-telefono">Teléfono y WhatsApp</h3>
-          <a href="tel:+593995656347">0995656347</a>
+          <h3 class="titulo-telefono">WhatsApp</h3>
+
+          <a href="https://wa.me/593998228348" data-whatsapp>
+            0998228348
+          </a>
         </div>
 
       </div>
     </section>
+
   </main>
 
   <footer>
@@ -379,17 +930,22 @@
         © <span id="anio">2026</span> AM OFFICE.
         Todos los derechos reservados.
       </span>
+
       <span>Quito, Ecuador</span>
     </div>
   </footer>
 
+  <!-- BOTÓN FLOTANTE VERDE -->
   <a
-    class="whatsapp-flotante"
-    href="https://wa.me/593995656347"
-    data-mensaje="Hola, AM OFFICE. Quisiera más información."
-    aria-label="Contactar por WhatsApp"
+      class="whatsapp-flotante"
+      href="https://wa.me/593998228348"
+      data-whatsapp
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Contactar a AM OFFICE por WhatsApp"
   >
     WhatsApp ↗
   </a>
+
 </body>
 </html>
