@@ -1,81 +1,86 @@
-/* ===================================================
-   PEGA AQUÍ LOS ENLACES DE TUS IMÁGENES
-   Conserva las comillas y las comas.
+/* =====================================================
+   WHATSAPP: NÚMERO Y MENSAJE PROPORCIONADOS
+   ===================================================== */
 
-   Ejemplo:
-   portada: "https://drive.google.com/file/d/19mw2EvsbKH388AePJqptiDmrF34ZlkpU/view?usp=sharing",
+const enlaceWhatsApp =
+  "https://wa.me/593998228348?text=%C2%A1Hola,%20AM%20OFFICE!%20%F0%9F%91%8B%20Estoy%20interesado%20en%20sus%20servicios%20de%20mobiliario%20y%20amoblamiento.%20Me%20gustar%C3%ADa%20recibir%20m%C3%A1s%20informaci%C3%B3n%20y%20una%20cotizaci%C3%B3n.";
 
-   También puedes usar imágenes locales:
-   portada: "./imagenes/oficina.jpg",
-   =================================================== */
+document.querySelectorAll("[data-whatsapp]").forEach((enlace) => {
+  enlace.href = enlaceWhatsApp;
+  enlace.target = "_blank";
+  enlace.rel = "noopener noreferrer";
+});
 
-const imagenes = {
-  logo: "",       // LOGO
-  portada: "",    // https://drive.google.com/file/d/19mw2EvsbKH388AePJqptiDmrF34ZlkpU/view?usp=sharing
-  producto1: "",  // FOTO DEL PRODUCTO 1
-  producto2: "",  // FOTO DEL PRODUCTO 2
-  producto3: "",  // FOTO DEL PRODUCTO 3
-  trabajo: ""     // https://drive.google.com/file/d/1uxuRZ89OENlKWPTekNva43SUDg5q4UiE/view?usp=sharing
-};
+/* =====================================================
+   IMÁGENES
+   Las rutas se editan únicamente en el HTML.
+   Oculta el recuadro de reserva cuando la imagen carga.
+   ===================================================== */
 
-const numeroWhatsApp = "593995656347";
-
-/* CARGAR IMÁGENES */
-document.querySelectorAll("[data-imagen]").forEach((imagen) => {
-  const enlace = imagenes[imagen.dataset.imagen];
-
-  if (!enlace || !enlace.trim()) return;
-
+document.querySelectorAll(".foto img, .marca .logo").forEach((imagen) => {
   const placeholder = imagen.parentElement.querySelector(".placeholder");
+  const esLogo = imagen.classList.contains("logo");
   const nombreMarca = document.getElementById("nombre-marca");
-  const esLogo = imagen.dataset.imagen === "logo";
 
-  imagen.addEventListener("load", () => {
+  function mostrarImagen() {
     imagen.hidden = false;
 
-    if (placeholder) placeholder.hidden = true;
-    if (esLogo && nombreMarca) nombreMarca.hidden = true;
-  });
+    if (placeholder) {
+      placeholder.hidden = true;
+    }
 
-  imagen.addEventListener("error", () => {
+    if (esLogo && nombreMarca) {
+      nombreMarca.hidden = true;
+    }
+  }
+
+  function mostrarReserva() {
     imagen.hidden = true;
 
-    if (placeholder) placeholder.hidden = false;
-    if (esLogo && nombreMarca) nombreMarca.hidden = false;
-  });
+    if (placeholder) {
+      placeholder.hidden = false;
+    }
 
-  imagen.src = enlace.trim();
+    if (esLogo && nombreMarca) {
+      nombreMarca.hidden = false;
+    }
+  }
+
+  imagen.addEventListener("load", mostrarImagen);
+  imagen.addEventListener("error", mostrarReserva);
+
+  // También funciona si la imagen ya estaba en caché.
+  if (imagen.complete) {
+    if (imagen.naturalWidth > 0) {
+      mostrarImagen();
+    } else {
+      mostrarReserva();
+    }
+  }
 });
 
-/* BOTONES DE WHATSAPP */
-document.querySelectorAll("[data-mensaje]").forEach((boton) => {
-  boton.href =
-    "https://wa.me/" +
-    numeroWhatsApp +
-    "?text=" +
-    encodeURIComponent(boton.dataset.mensaje);
-
-  boton.target = "_blank";
-  boton.rel = "noopener noreferrer";
-});
-
-/* AÑO DEL PIE DE PÁGINA */
+/* AÑO ACTUAL */
 const anio = document.getElementById("anio");
 
 if (anio) {
   anio.textContent = new Date().getFullYear();
 }
 
-/* ANIMACIONES AL HACER SCROLL */
-const elementos = [...document.querySelectorAll("[data-animar]")];
+/* =====================================================
+   ANIMACIONES AL HACER SCROLL
+   ===================================================== */
 
 const reducirMovimiento = window.matchMedia(
   "(prefers-reduced-motion: reduce)"
 );
 
+const elementos = [
+  ...document.querySelectorAll("[data-animar]")
+];
+
 let observador;
 
-function mostrar(elemento) {
+function mostrarElemento(elemento) {
   elemento.classList.remove("pendiente");
   elemento.classList.add("visible");
 
@@ -92,7 +97,7 @@ if (
     (entradas) => {
       entradas.forEach((entrada) => {
         if (entrada.isIntersecting) {
-          mostrar(entrada.target);
+          mostrarElemento(entrada.target);
         }
       });
     },
@@ -104,10 +109,11 @@ if (
   elementos.forEach((elemento) => {
     const posicion = elemento.getBoundingClientRect();
 
-    // El contenido que ya está en pantalla permanece visible.
-    if (posicion.top < window.innerHeight) return;
+    if (posicion.top < window.innerHeight) {
+      return;
+    }
 
-    if (elemento.matches(".servicio, .producto")) {
+    if (elemento.classList.contains("servicio")) {
       const hermanos = [...elemento.parentElement.children];
       const indice = hermanos.indexOf(elemento);
 
@@ -122,34 +128,41 @@ if (
   });
 }
 
-/* ACCESIBILIDAD CON TECLADO */
+/* NAVEGACIÓN CON TECLADO */
 document.addEventListener("focusin", (evento) => {
-  if (!(evento.target instanceof Element)) return;
+  if (!(evento.target instanceof Element)) {
+    return;
+  }
 
   const elemento = evento.target.closest("[data-animar]");
 
   if (elemento) {
-    mostrar(elemento);
+    mostrarElemento(elemento);
   }
 });
 
-/* RESPETAR LA OPCIÓN DE REDUCIR MOVIMIENTO */
+/* REDUCIR MOVIMIENTO */
 reducirMovimiento.addEventListener("change", (evento) => {
-  if (!evento.matches) return;
+  if (!evento.matches) {
+    return;
+  }
 
   if (observador) {
     observador.disconnect();
   }
 
-  elementos.forEach(mostrar);
+  elementos.forEach(mostrarElemento);
 });
 
-/* SOMBRA DEL MENÚ AL DESPLAZARSE */
+/* SOMBRA DEL ENCABEZADO */
 const encabezado = document.querySelector(".encabezado");
 
 function actualizarEncabezado() {
   if (encabezado) {
-    encabezado.classList.toggle("con-sombra", window.scrollY > 12);
+    encabezado.classList.toggle(
+      "con-sombra",
+      window.scrollY > 12
+    );
   }
 }
 
@@ -158,3 +171,76 @@ window.addEventListener("scroll", actualizarEncabezado, {
 });
 
 actualizarEncabezado();
+
+/* =====================================================
+   CARRUSEL DE CUATRO CATEGORÍAS
+   Flechas, teclado y desplazamiento táctil.
+   ===================================================== */
+
+const carrusel = document.getElementById("carrusel-productos");
+const anterior = document.getElementById("producto-anterior");
+const siguiente = document.getElementById("producto-siguiente");
+const controles = document.querySelector(".carrusel-controles");
+
+if (carrusel && anterior && siguiente && controles) {
+  controles.hidden = false;
+
+  function actualizarControles() {
+    const maximo = carrusel.scrollWidth - carrusel.clientWidth;
+
+    anterior.disabled = carrusel.scrollLeft <= 2;
+    siguiente.disabled = carrusel.scrollLeft >= maximo - 2;
+  }
+
+  function desplazar(direccion) {
+    const tarjeta = carrusel.querySelector(".producto");
+
+    if (!tarjeta) {
+      return;
+    }
+
+    const separacion =
+      parseFloat(getComputedStyle(carrusel).columnGap) || 0;
+
+    const distancia =
+      tarjeta.getBoundingClientRect().width + separacion;
+
+    carrusel.scrollBy({
+      left: direccion * distancia,
+      behavior: reducirMovimiento.matches ? "instant" : "smooth"
+    });
+  }
+
+  anterior.addEventListener("click", () => {
+    desplazar(-1);
+  });
+
+  siguiente.addEventListener("click", () => {
+    desplazar(1);
+  });
+
+  carrusel.addEventListener("keydown", (evento) => {
+    if (evento.target !== carrusel) {
+      return;
+    }
+
+    if (evento.key === "ArrowRight") {
+      evento.preventDefault();
+      desplazar(1);
+    }
+
+    if (evento.key === "ArrowLeft") {
+      evento.preventDefault();
+      desplazar(-1);
+    }
+  });
+
+  carrusel.addEventListener("scroll", actualizarControles, {
+    passive: true
+  });
+
+  window.addEventListener("resize", actualizarControles);
+  window.addEventListener("load", actualizarControles);
+
+  actualizarControles();
+}
